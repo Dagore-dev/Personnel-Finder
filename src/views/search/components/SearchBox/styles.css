@@ -1,0 +1,37 @@
+.title{
+    color: #eee;
+}
+
+.form__input,
+.form__button{
+    margin: 1rem;
+    height: 25px;
+    line-height: 25px;
+}
+.form__input{
+    outline: none;
+    width: 300px;
+    border-radius: 10px;
+}
+
+.form__button{
+    width: 75px;
+    text-transform: uppercase;
+    color: #eee;
+    font-weight: 600;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+}
+
+.form__button:active{
+    transform: scale(.8);
+    transition: transform .3s;
+}
+
+.form__button--search{
+    background-color: #2bb8db;
+}
+.form__button--close{
+    background-color: #777;
+}
