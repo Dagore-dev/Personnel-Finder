@@ -8,7 +8,7 @@ const Search = () => {
     const [isAtTop, setIsAtTop] = useState(false);
     const [results, setResults] = useState([]);
 
-    const hadleSearchClick = (searchText) => {
+    const handleSearchClick = (searchText) => {
         setIsAtTop(true);
         if(data?.length){//Comprueba que tiene la propiedad length
             const lowercase = searchText.toLowerCase();
@@ -23,13 +23,13 @@ const Search = () => {
             setResults(filteredData);
         }
     };
-    const hadleCloseClick = () => {
+    const handleCloseClick = () => {
         setIsAtTop(false);
     };
     return(
         <div className={`container ${isAtTop ? 'top' : 'center'}`}>
             
-            <SearchBox onSearch={hadleSearchClick} onClose={hadleCloseClick}/>
+            <SearchBox onSearch={(searchText) => handleSearchClick(searchText)} onClose={() => handleCloseClick()}/>
             <SearchResults results={results}/>
             
         </div>
