@@ -1,12 +1,30 @@
+import { useState, useEffect} from 'react';
+import axios from 'axios';
+
 import './styles.css'
 import SearchBox from './components/SearchBox/index';
-import { useState } from 'react';
-import data from '../../data/user.json';
 import SearchResults from './components/SearchResults';
 
 const Search = () => {
     const [isAtTop, setIsAtTop] = useState(false);
     const [results, setResults] = useState([]);
+    const [data, setData] = useState([]);
+
+    const getUsers = async () => {
+        try{
+            //  const res = await fetch('https://jsonplaceholder.typicode.com/users');
+            //  const data = await res.json();
+            const { data } = await axios.get('https://jsonplaceholder.typicode.com/users');
+            setData(data);
+        }
+        catch(err){
+            console.log(err);
+        }
+    }
+    
+    useEffect(() => {
+        getUsers();
+    },[]);
 
     const handleSearchClick = (searchText) => {
         setIsAtTop(true);
