@@ -30,8 +30,8 @@ const Search = () => {
     return(
         <div className={`container ${isAtTop ? 'top' : 'center'}`}>
             
-            <SearchBox onSearch={(searchText) => handleSearchClick(searchText)} onClose={() => handleCloseClick()}/>
-            <SearchResults results={results}/>
+            <SearchBox onSearch={(searchText) => handleSearchClick(searchText)} onClose={() => handleCloseClick()} isSearching={isAtTop}/>
+            <SearchResults results={results} isSearching={isAtTop}/>
             
         </div>
     )

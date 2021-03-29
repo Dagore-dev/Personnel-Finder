@@ -3,17 +3,3 @@
     color: #eee;
     padding-left: 0;
 }
-
-.list__item{
-    width: 552px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    text-align: center;
-}
-
-.list__item span{
-    margin-bottom: .5rem;
-    height: 30px;
-    line-height: 30px;
-}

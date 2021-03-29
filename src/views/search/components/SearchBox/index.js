@@ -1,7 +1,7 @@
 import './styles.css'
 import { useState } from "react";
 
-const SearchBox = ({onSearch, onClose}) => {
+const SearchBox = ({onSearch, onClose, isSearching}) => {
     const [searchText, setSearchText] = useState('');
 
     const handleClose = (e) => {
@@ -23,8 +23,10 @@ const SearchBox = ({onSearch, onClose}) => {
 
                 <input className='form__input' type='text' value={searchText} onChange={({target: {value}}) => {setSearchText(value)}}></input>
 
-                <button className='form__button form__button--search'>Buscar</button>
-                <button className='form__button form__button--close' onClick={(e) => handleClose(e)}>Cerrar</button>
+                <button className='form__button form__button--search' disabled={!searchText.length}>Buscar</button>
+                
+                {isSearching && <button className='form__button form__button--close' onClick={(e) => handleClose(e)}>Cerrar</button>}
+                
             </form>
         </>
     )
