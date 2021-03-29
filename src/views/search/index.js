@@ -25,6 +25,7 @@ const Search = () => {
     };
     const handleCloseClick = () => {
         setIsAtTop(false);
+        setResults([]);
     };
     return(
         <div className={`container ${isAtTop ? 'top' : 'center'}`}>

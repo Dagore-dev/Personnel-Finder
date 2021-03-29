@@ -1,11 +1,12 @@
+import './styles.css';
 
 const SearchResults = ({results}) => {
     return(
-        <ul>
+        <ul className='list'>
             {results?.map((value) => {
                 return(
-                    <li key={value.id}>
-                        {value.name}. {value.email}
+                    <li className='list__item' key={value.id}>
+                        <span>{value.name}</span> <span>{value.email}</span>
                     </li>
                 )
             })}

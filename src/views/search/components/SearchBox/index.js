@@ -10,17 +10,22 @@ const SearchBox = ({onSearch, onClose}) => {
         onClose();
     }
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        onSearch(searchText);
+    }
+
     return(
         <>
             <h1 className='title'>Buscador de personal</h1>
 
-            <div className='form'>
+            <form onSubmit={(e) => handleSubmit(e)} className='form'>
 
-                <input className='form__input' type='text' onChange={({target: {value}}) => {setSearchText(value)}}></input>
+                <input className='form__input' type='text' value={searchText} onChange={({target: {value}}) => {setSearchText(value)}}></input>
 
-                <button className='form__button form__button--search' onClick={() => onSearch(searchText)}>Buscar</button>
+                <button className='form__button form__button--search'>Buscar</button>
                 <button className='form__button form__button--close' onClick={(e) => handleClose(e)}>Cerrar</button>
-            </div>
+            </form>
         </>
     )
 }
